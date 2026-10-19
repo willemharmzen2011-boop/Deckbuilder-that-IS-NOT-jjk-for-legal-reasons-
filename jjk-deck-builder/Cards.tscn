@@ -22,5 +22,6 @@ texture = ExtResource("1_576yg")
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_yr8pi")
 
-[connection signal="mouse_shape_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
-[connection signal="mouse_shape_exited" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_mouse_shape_exited"]
+[connection signal="input_event" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_input_event"]
+[connection signal="mouse_shape_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_mouse_shape_exited"]
