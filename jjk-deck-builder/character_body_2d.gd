@@ -8,12 +8,18 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if is_selected == true:
+		var target_pos = get_global_mouse_position()
+		global_position = global_position.lerp(target_pos, 0.2)
+	
+		
+		
 
-func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int)-> void:
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		if cursor_on_card:
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if event is InputEventMouseButton and  cursor_on_card and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
 			is_selected = true
+		else:is_selected = false
 
 
 
