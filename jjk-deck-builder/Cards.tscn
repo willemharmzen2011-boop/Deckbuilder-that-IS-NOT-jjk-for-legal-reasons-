@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://bbqnm48pty1bf"]
+
+[ext_resource type="Texture2D" uid="uid://cblkfh4cb7q0c" path="res://Sprites/Untitled_card1(1).png" id="1_576yg"]
+[ext_resource type="Script" uid="uid://yfjxnwcmc5pw" path="res://character_body_2d.gd" id="2_ahqdp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr8pi"]
+size = Vector2(208, 291)
+
+[node name="Cards" type="Node2D" unique_id=861145895]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1499330783]
+script = ExtResource("2_ahqdp")
+
+[node name="Punch_card_image" type="Sprite2D" parent="CharacterBody2D" unique_id=1901956738]
+position = Vector2(0, 0.6000061)
+scale = Vector2(0.17333333, 0.17333333)
+texture = ExtResource("1_576yg")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D" unique_id=882062158]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D" unique_id=1951655711]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_yr8pi")
+
+[connection signal="mouse_shape_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_mouse_shape_exited"]
