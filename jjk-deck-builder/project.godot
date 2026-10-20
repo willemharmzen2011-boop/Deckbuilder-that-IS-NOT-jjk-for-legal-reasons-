@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Player_manager="*uid://byuqre2c3xx7c"
+playerstate="*uid://bc2048vmxe3ql"
 
 [editor_plugins]
 
