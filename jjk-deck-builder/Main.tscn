@@ -1,21 +1,19 @@
 [gd_scene format=3 uid="uid://cjafiortruu58"]
 
-[ext_resource type="PackedScene" uid="uid://bbqnm48pty1bf" path="res://Cards.tscn" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://c62skc5skool1" path="res://turn_manager.gd" id="1_r0du0"]
 [ext_resource type="Script" uid="uid://6ikmhu0p4bat" path="res://card_manager.gd" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://cosnffrqu6vku" path="res://punch.tscn" id="2_uu6xs"]
 
 [node name="Node2D" type="Node2D" unique_id=1179792890]
 
-[node name="card_manager" type="Node2D" parent="." unique_id=1291767345]
+[node name="turn_manager" type="Node2D" parent="." unique_id=1917404869]
+script = ExtResource("1_r0du0")
+
+[node name="card_manager" type="Node2D" parent="turn_manager" unique_id=1291767345]
 script = ExtResource("1_uu6xs")
 
-[node name="Cards" parent="card_manager" unique_id=861145895 instance=ExtResource("1_glv2v")]
-position = Vector2(386, 157)
-scale = Vector2(0.7, 0.7)
+[node name="punch" parent="turn_manager/card_manager" unique_id=861145895 instance=ExtResource("2_uu6xs")]
 
-[node name="Cards2" parent="card_manager" unique_id=583594420 instance=ExtResource("1_glv2v")]
-position = Vector2(686, 521)
-scale = Vector2(0.6999999, 0.6999999)
+[node name="punch2" parent="turn_manager/card_manager" unique_id=1183815746 instance=ExtResource("2_uu6xs")]
 
-[node name="Cards3" parent="card_manager" unique_id=1275273003 instance=ExtResource("1_glv2v")]
-position = Vector2(480.99997, 523)
-scale = Vector2(0.6999999, 0.6999999)
+[node name="punch3" parent="turn_manager/card_manager" unique_id=1290005626 instance=ExtResource("2_uu6xs")]
