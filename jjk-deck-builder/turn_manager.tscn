@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bioq0b7coxnd5"]
+
+[ext_resource type="Script" uid="uid://c62skc5skool1" path="res://turn_manager.gd" id="1_u6owk"]
+[ext_resource type="Texture2D" uid="uid://dnvxsfa8y610h" path="res://Sprites/finish turn.png" id="2_tsdb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqp4g"]
+size = Vector2(163, 74)
+
+[node name="turn_manager" type="Area2D" unique_id=1509573395]
+script = ExtResource("1_u6owk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1962610958]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_hqp4g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=922938276]
+position = Vector2(4, -4)
+scale = Vector2(0.045262102, 0.0452621)
+texture = ExtResource("2_tsdb7")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_shape_entered" from="." to="." method="_on_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="." to="." method="_on_mouse_shape_exited"]
