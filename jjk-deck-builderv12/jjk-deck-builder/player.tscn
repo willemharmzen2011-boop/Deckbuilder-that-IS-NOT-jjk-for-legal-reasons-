@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://uncqggt3h0av"]
+
+[ext_resource type="Texture2D" uid="uid://12enh7xyxk6q" path="res://Sprites/smiling-business-man-in-suit-thumbs-up-pose-on-transparent-background-png.png" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://byuqre2c3xx7c" path="res://player_manager.gd" id="1_onrkg"]
+
+[node name="player" type="Node2D" unique_id=588766478]
+script = ExtResource("1_onrkg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1705165862]
+
+[node name="SmilingBusinessManInSuitThumbsUpPoseOnTransparentBackgroundPng" type="Sprite2D" parent="." unique_id=1940022080]
+position = Vector2(13, -6)
+texture = ExtResource("1_4flbx")
