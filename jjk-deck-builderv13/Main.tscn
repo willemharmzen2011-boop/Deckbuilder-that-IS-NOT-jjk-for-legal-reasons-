@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cjafiortruu58"]
+
+[ext_resource type="PackedScene" uid="uid://dyp2i2kbbw3lg" path="res://enemy_type_1.tscn" id="1_cm0pq"]
+[ext_resource type="Script" uid="uid://6ikmhu0p4bat" path="res://card_manager.gd" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://uncqggt3h0av" path="res://player.tscn" id="2_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://cosnffrqu6vku" path="res://punch.tscn" id="2_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://bioq0b7coxnd5" path="res://turn_manager.tscn" id="5_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://bdu57e3i4x3cl" path="res://cursed_strike.tscn" id="5_fos0i"]
+
+[node name="Node2D" type="Node2D" unique_id=1179792890]
+
+[node name="player" parent="." unique_id=588766478 instance=ExtResource("2_3dxm6")]
+position = Vector2(-278, -234)
+
+[node name="Enemy type 1" parent="." unique_id=408678034 instance=ExtResource("1_cm0pq")]
+position = Vector2(335, -234)
+script = null
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=344641093]
+position = Vector2(0, -198)
+
+[node name="card_manager" type="Node2D" parent="." unique_id=1291767345]
+script = ExtResource("1_uu6xs")
+
+[node name="punch" parent="card_manager" unique_id=861145895 instance=ExtResource("2_uu6xs")]
+position = Vector2(-110, 0)
+
+[node name="punch2" parent="card_manager" unique_id=1183815746 instance=ExtResource("2_uu6xs")]
+
+[node name="punch3" parent="card_manager" unique_id=1290005626 instance=ExtResource("2_uu6xs")]
+z_index = 1
+position = Vector2(110, 0)
+
+[node name="punch4" parent="card_manager" unique_id=1367349246 instance=ExtResource("2_uu6xs")]
+z_index = -1
+position = Vector2(-220, 0)
+
+[node name="CharacterBody2D" parent="card_manager" unique_id=1499330783 instance=ExtResource("5_fos0i")]
+z_index = 1
+position = Vector2(220, 0)
+scale = Vector2(0.6004206, 0.6004206)
+
+[node name="turn_manager" parent="." unique_id=1509573395 instance=ExtResource("5_3dxm6")]
+position = Vector2(439, 0)
+scale = Vector2(1.4546351, 1.4183517)
