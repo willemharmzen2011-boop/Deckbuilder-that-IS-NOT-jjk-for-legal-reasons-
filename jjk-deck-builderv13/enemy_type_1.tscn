@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dyp2i2kbbw3lg"]
+
+[ext_resource type="Texture2D" uid="uid://bh3kbiem0y8fp" path="res://Sprites/Screenshot_2026-10-17_131758-removebg-preview.png" id="1_2ht8i"]
+[ext_resource type="Script" uid="uid://pwk1nyj7apku" path="res://enemy_type_1.gd" id="1_qf0cy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qf0cy"]
+bg_color = Color(0.26293245, 0.26293248, 0.26293233, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8b64"]
+bg_color = Color(0.7529412, 0, 0.02745098, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2ht8i"]
+radius = 76.0
+height = 208.0
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=564001202 groups=["enemy"]]
+script = ExtResource("1_qf0cy")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=144328986]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0.67645913, 0, 0.09479574, 1)
+offset_left = -79.0
+offset_top = -137.0
+offset_right = 214.33331
+offset_bottom = -110.0
+scale = Vector2(0.5457992, 0.5457992)
+theme_override_styles/background = SubResource("StyleBoxFlat_qf0cy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q8b64")
+max_value = 70.0
+fill_mode = 1
+show_percentage = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1954464948]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_2ht8i")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1737898440 groups=["enemy"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1187005944]
+shape = SubResource("CapsuleShape2D_2ht8i")
+
+[connection signal="body_entered" from="Area2D" to="." method="take_damage"]
