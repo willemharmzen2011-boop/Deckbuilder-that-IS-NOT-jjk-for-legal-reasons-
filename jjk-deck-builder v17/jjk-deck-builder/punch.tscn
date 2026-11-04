@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cosnffrqu6vku"]
+
+[ext_resource type="Script" uid="uid://yfjxnwcmc5pw" path="res://character_body_2d.gd" id="1_qquw1"]
+[ext_resource type="Texture2D" uid="uid://cblkfh4cb7q0c" path="res://Sprites/Untitled_card1(1).png" id="2_wqflr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yr8pi"]
+size = Vector2(208, 291)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1499330783 groups=["cards", "punch_card"]]
+scale = Vector2(0.6, 0.6)
+script = ExtResource("1_qquw1")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=882062158]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951655711]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_yr8pi")
+
+[node name="Punch_card_image" type="Sprite2D" parent="." unique_id=1901956738]
+position = Vector2(0, 0.6000061)
+scale = Vector2(0.17333333, 0.17333333)
+texture = ExtResource("2_wqflr")
+
+[connection signal="body_entered" from="Area2D" to="." method="card_over_enemy"]
+[connection signal="body_exited" from="Area2D" to="." method="card_off_enemy"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]

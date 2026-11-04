@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://ca8k3iq25yayn"]
+
+[ext_resource type="Texture2D" uid="uid://c7eqrbrvd1gnw" path="res://Sprites/play_button.png" id="1_06t4h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rhts7"]
+font_size = 43
+
+[sub_resource type="LabelSettings" id="LabelSettings_06t4h"]
+font_size = 13
+
+[node name="main menu" type="Control" unique_id=296242735]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1720063923]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.317
+anchor_bottom = 1.0
+offset_right = 0.18200684
+color = Color(0.23031491, 0.23031494, 0.23031494, 1)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1785324731]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.109000005
+anchor_bottom = 0.035
+offset_left = 78.0
+offset_top = 66.0
+offset_right = 247.17511
+offset_bottom = 102.32
+text = "game title"
+label_settings = SubResource("LabelSettings_rhts7")
+
+[node name="play_button" type="TextureButton" parent="ColorRect" unique_id=150864794]
+layout_mode = 0
+offset_left = 98.00001
+offset_top = 177.0
+offset_right = 4598.0
+offset_bottom = 2657.0
+scale = Vector2(0.033996873, 0.032996703)
+texture_normal = ExtResource("1_06t4h")
+
+[node name="new_save" type="TextureButton" parent="ColorRect" unique_id=612386675]
+layout_mode = 0
+offset_left = 93.00001
+offset_top = 245.0
+offset_right = 133.0
+offset_bottom = 285.0
+scale = Vector2(4.130048, 1.4703293)
+
+[node name="settings" type="TextureButton" parent="ColorRect" unique_id=172141750]
+layout_mode = 0
+offset_left = 95.00001
+offset_top = 323.0
+offset_right = 135.0
+offset_bottom = 363.0
+scale = Vector2(4.106047, 1.4864674)
+
+[node name="Label2" type="Label" parent="ColorRect" unique_id=1801720901]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 615.0
+offset_right = 351.0
+offset_bottom = 638.0
+text = "© 2026 DangerWorks !interactive. All rights reserved."
+label_settings = SubResource("LabelSettings_06t4h")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=543013912]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0020001
+anchor_bottom = 1.0120001
+offset_right = -0.30407715
+offset_bottom = 0.22393799
