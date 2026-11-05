@@ -24,6 +24,18 @@ playerstate="*uid://bc2048vmxe3ql"
 
 enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 
+[global_group]
+
+punch_card=""
+cards=""
+cursed_strike_card=""
+enemy=""
+turn_manager=""
+player=""
+"attack card"=""
+"discard pile"=""
+block=""
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

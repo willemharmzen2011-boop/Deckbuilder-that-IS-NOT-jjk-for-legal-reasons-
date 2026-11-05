@@ -3,7 +3,7 @@ extends Node
 var player_deck = {
 	"punch":3,
 	"Guard":0,
-	"cursed_strike":0
+	"cursed_strike":5
 }
 
 var disgard_pile = {

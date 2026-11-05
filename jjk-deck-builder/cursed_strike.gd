@@ -1,4 +1,6 @@
 extends CharacterBody2D
+#calls the area 2d into the script
+@onready var area_2d: Area2D = $Area2D 
 #lists what type of card this card is, used for counting up the cards so they can be put back into the inventory
 const card_type: String = "cursed_strike"
 #detects if cursor is on the card
@@ -8,9 +10,9 @@ var is_selected = false
 #dictates in which slot the card is placed on the deck
 #may also be useable for the visual layer the card is on while sitting in the hand just for added detail
 var card_placement_order: int = 0
-# Called when the node enters the scene tree for the first time.
 var attack_damage = 10
-var energy_usage = 1
+var card_is_on_enemy = false
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -18,6 +20,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#if the card is selected the card will be dragged slightly behind the mouse
+	
 	if is_selected == true:
 		#gets the mouse's global position so it can
 		var target_pos = get_global_mouse_position()
@@ -29,13 +32,20 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	#fetches the turn manager node so we can check if turn_start == true and if it does then 
+	var turn_manager = get_tree().get_first_node_in_group("turn_manager")
 	# Checks for left click input and that the cursor is over the card all at once
-	if event is InputEventMouseButton and cursor_on_card and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and turn_manager.turn_start == true and cursor_on_card and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			is_selected = true
 			get_viewport().set_input_as_handled()
 		else:
 			is_selected = false
+			if card_is_on_enemy:
+				var enemy = get_tree().get_first_node_in_group("enemy")
+				if enemy:
+					print("dropping card on enemy, dealing damage now")
+					enemy.take_damage(self)
 
 
 
@@ -48,3 +58,24 @@ func _on_area_2d_mouse_shape_entered(shape_idx: int) -> void:
 func _on_area_2d_mouse_shape_exited(shape_idx: int) -> void:
 	#detects if the cursor isnt on the card
 	cursor_on_card = false
+
+	
+
+
+
+func card_over_enemy(area: Area2D) -> void:
+	print("soemthing entered the area", area.name)
+	var parent_node = area.get_parent()
+	if parent_node and parent_node.is_in_group("enemy"):
+		card_is_on_enemy = true
+		print("success:card is over enemy")
+	
+
+
+
+func card_off_enemy(area: Area2D) -> void:
+	print("something has left the area", area.name)
+	var parent_node = area.get_parent()
+	if parent_node and parent_node.is_in_group("enemy"):
+		card_is_on_enemy = false
+		print("card left the enemy.")
