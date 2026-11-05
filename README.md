@@ -2,3 +2,5 @@ i am making this game not only for myself but for the Hack Club Terra event for 
 
 
 so last time i said that i had a problem where the cards stuck to the cursor and wouldnt come off when i let go of the card that was because under the function _on_area_2d_input_event there is an if and statement that was layed out incorrectly with cursor_on_card as a separate if statement where event.pressed was meant to be and that created a sticking effect where the card got stuck to the cursor and wouldn't unstick when you let go
+
+on itch.io just download the zip unzip it and open the exe file then your golden
