@@ -29,3 +29,12 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and turn_start == true and cursor_on_turn_end_button and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			turn_start = false
+			var enemies = get_tree().get_nodes_in_group("enemy")
+			for enemy in enemies:
+				enemy.enemy_turn()
+			
+			
+			
+
+func button_hover_animation():
+	pass

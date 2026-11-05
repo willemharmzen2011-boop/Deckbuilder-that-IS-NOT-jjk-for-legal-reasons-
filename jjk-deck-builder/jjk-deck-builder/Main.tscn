@@ -1,40 +1,55 @@
 [gd_scene format=3 uid="uid://cjafiortruu58"]
 
 [ext_resource type="PackedScene" uid="uid://dyp2i2kbbw3lg" path="res://enemy_type_1.tscn" id="1_cm0pq"]
+[ext_resource type="Texture2D" uid="uid://dv7i34rkibtu0" path="res://Sprites/360_F_563793233_FLRzNri7kbqtIEQmTi6pVH061cj9swyJ.jpg" id="1_lgr22"]
 [ext_resource type="Script" uid="uid://6ikmhu0p4bat" path="res://card_manager.gd" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://uncqggt3h0av" path="res://player.tscn" id="2_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://cosnffrqu6vku" path="res://punch.tscn" id="2_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://bioq0b7coxnd5" path="res://turn_manager.tscn" id="5_3dxm6"]
-[ext_resource type="PackedScene" uid="uid://bdu57e3i4x3cl" path="res://cursed_strike.tscn" id="5_fos0i"]
+[ext_resource type="PackedScene" uid="uid://bdu57e3i4x3cl" path="res://cursed_strike (3).tscn" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://diuey2x428xt1" path="res://block.tscn" id="8_trn2v"]
 
 [node name="Node2D" type="Node2D" unique_id=1179792890]
 
-[node name="Enemy type 1" parent="." unique_id=408678034 instance=ExtResource("1_cm0pq")]
-position = Vector2(377, -264)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1405331352]
+z_index = -13
+position = Vector2(1.0000001, -404.99994)
+scale = Vector2(1.1847296, 1.1847296)
+texture = ExtResource("1_lgr22")
 
-[node name="player" parent="Enemy type 1" unique_id=588766478 instance=ExtResource("2_3dxm6")]
-position = Vector2(-1954.6667, -2.6666641)
+[node name="player" parent="." unique_id=588766478 instance=ExtResource("2_3dxm6")]
+position = Vector2(-280, -201)
+scale = Vector2(0.546, 0.546)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=344641093]
 position = Vector2(0, -198)
 
-[node name="card_manager" type="Node2D" parent="." unique_id=1291767345]
+[node name="turn_manager" parent="." unique_id=1509573395 instance=ExtResource("5_3dxm6")]
+position = Vector2(439, 0)
+scale = Vector2(1.4546351, 1.4183517)
+
+[node name="StaticBody2D" parent="turn_manager" unique_id=564001202 instance=ExtResource("1_cm0pq")]
+position = Vector2(-11.686791, -133.95833)
+scale = Vector2(0.7, 0.718)
+
+[node name="card_manager" type="Node2D" parent="turn_manager" unique_id=1291767345]
+position = Vector2(-301.79388, 0)
+scale = Vector2(0.68745756, 0.70504373)
 script = ExtResource("1_uu6xs")
 
-[node name="punch" parent="card_manager" unique_id=861145895 instance=ExtResource("2_uu6xs")]
+[node name="punch" parent="turn_manager/card_manager" unique_id=861145895 instance=ExtResource("2_uu6xs")]
 position = Vector2(-110, 0)
 
-[node name="punch2" parent="card_manager" unique_id=1183815746 instance=ExtResource("2_uu6xs")]
+[node name="punch2" parent="turn_manager/card_manager" unique_id=1183815746 instance=ExtResource("2_uu6xs")]
 
-[node name="punch3" parent="card_manager" unique_id=1290005626 instance=ExtResource("2_uu6xs")]
-z_index = 1
-position = Vector2(110, 0)
-
-[node name="punch4" parent="card_manager" unique_id=1367349246 instance=ExtResource("2_uu6xs")]
+[node name="punch4" parent="turn_manager/card_manager" unique_id=1367349246 instance=ExtResource("2_uu6xs")]
 z_index = -1
 position = Vector2(-220, 0)
 
-[node name="CharacterBody2D" parent="card_manager" unique_id=1499330783 instance=ExtResource("5_fos0i")]
+[node name="cursed_strike" parent="turn_manager/card_manager" unique_id=1499330783 instance=ExtResource("7_lgr22")]
+position = Vector2(232.99997, 0)
+scale = Vector2(0.6066699, 0.6066699)
 
-[node name="turn_manager" parent="." unique_id=1509573395 instance=ExtResource("5_3dxm6")]
-position = Vector2(372, 0)
+[node name="CharacterBody2D" parent="turn_manager/card_manager" unique_id=163633940 instance=ExtResource("8_trn2v")]
+position = Vector2(107.00001, 0)
+scale = Vector2(0.6165015, 0.6165015)

@@ -30,6 +30,11 @@ punch_card=""
 cards=""
 cursed_strike_card=""
 enemy=""
+turn_manager=""
+player=""
+"attack card"=""
+"discard pile"=""
+block=""
 
 [physics]
 

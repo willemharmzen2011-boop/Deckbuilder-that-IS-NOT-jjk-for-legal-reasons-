@@ -20,8 +20,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#if the card is selected the card will be dragged slightly behind the mouse
+	if  is_in_group("discard pile"):
+		pass
 	
+	#if the card is selected the card will be dragged slightly behind the mouse
 	if is_selected == true:
 		#gets the mouse's global position so it can
 		var target_pos = get_global_mouse_position()
@@ -33,14 +35,19 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	
+	#fetches the turn manager node so we can check if turn_start == true and if it does then 
+	var turn_manager = get_tree().get_first_node_in_group("turn_manager")
 	# Checks for left click input and that the cursor is over the card all at once
-	if event is InputEventMouseButton and cursor_on_card and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and turn_manager.turn_start == true and cursor_on_card and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			is_selected = true
 			get_viewport().set_input_as_handled()
 		else:
 			is_selected = false
+			if card_is_on_enemy:
+				var enemy = get_tree().get_first_node_in_group("enemy")
+				if enemy:
+					enemy.take_damage(self)
 
 
 
@@ -56,15 +63,17 @@ func _on_area_2d_mouse_shape_exited(shape_idx: int) -> void:
 	
 
 
-
-func card_over_enemy(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
+func card_over_enemy(area: Area2D) -> void:
+	print("the card is over the", area.name)
+	var parent_node = area.get_parent()
+	if parent_node and parent_node.is_in_group("enemy"):
 		card_is_on_enemy = true
-		print("it worky")
+		print("super success tha card is over the enemy")
 
 
-
-
-func card_off_enemy(body: Node2D) -> void:
-	if body.is_in_group("enemy"):
+func card_off_enemy(area: Area2D) -> void:
+	print("something is not in da area anymore",area.name)
+	var parent_node = area.get_parent()
+	if parent_node and parent_node.is_in_group("enemy"):
 		card_is_on_enemy = false
+		print("card left the enemy area")
