@@ -42,18 +42,23 @@ func _process(delta: float) -> void:
 
 #lays out the cards in the correct places in here
 func hand_layout_manager():
+	#finds the cards in the tree
 	var cards = get_tree().get_nodes_in_group("cards")
-	
+	#creates a loop to sort the cards until there is no more to sort
 	for card in cards:
+		#if the card isnt selected it will...
 		if not card.get("is_selected"):
+			#get its slot index as its car_placement_order variable
 			var slot_index = card.get("card_placement_order")
-
+			# if slot index then comes back as null and slot index is less than slot_positons then...
 			if slot_index != null and slot_index < slot_positions.size():
+				# make one of them lerps to make a smooth movement from the point where it was dropped to the 
+				#target_pos ya know
 				var target_pos = slot_positions[slot_index]
 				card.global_position = card.global_position.lerp(target_pos, 0.2)
 	
 	
-	
+	#ignore lol
 	#for this one what am i needing to do. lets think for a second...
 	#so we want our 5 cards that were numbered before to be placed at specific coordinates that we set as vector2s at the top.
 	#which coordinate they are sent to is determend by the unique numbers set on each card so wii need to set the card variable to be set to the cards from before

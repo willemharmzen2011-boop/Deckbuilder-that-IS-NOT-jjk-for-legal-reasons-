@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dnmtlu8ii4af6"]
+
+[ext_resource type="Script" uid="uid://b48aewxrtheis" path="res://respawn_screen.gd" id="1_l7xen"]
+[ext_resource type="Texture2D" uid="uid://mksj4f1410am" path="res://Sprites/respawn - Copy.png" id="2_ack7s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_auw8m"]
+font_size = 60
+
+[node name="respawn screen" type="Control" unique_id=1242818871]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.99999994
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9993358, 1.0780524)
+script = ExtResource("1_l7xen")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=120310784]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.001
+anchor_bottom = 1.011
+offset_right = -0.15209961
+offset_bottom = -0.12805176
+color = Color(0.40784314, 0.011764706, 0, 0.40392157)
+
+[node name="Label" type="Label" parent="ColorRect" unique_id=1897235168]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.035
+offset_left = 465.00003
+offset_top = 155.0
+offset_right = 673.645
+offset_bottom = 215.075
+scale = Vector2(0.87825817, 0.87825817)
+text = "you died"
+label_settings = SubResource("LabelSettings_auw8m")
+
+[node name="main_menu_button" type="TextureButton" parent="." unique_id=188219871]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.42700002
+anchor_top = 0.40100002
+anchor_right = 0.56100005
+anchor_bottom = 0.5
+offset_left = 0.0960083
+offset_top = -2.8480225
+offset_right = -108.78656
+offset_bottom = -24.269012
+scale = Vector2(3.385697, 1.4041333)
+
+[node name="respawn_button" type="TextureButton" parent="." unique_id=1872578821]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.432
+anchor_top = 0.514
+anchor_right = 0.55700004
+anchor_bottom = 0.606
+offset_left = -21.347626
+offset_top = 46.315887
+offset_right = 4334.6523
+offset_bottom = 2466.7
+scale = Vector2(0.046901245, 0.03659398)
+texture_normal = ExtResource("2_ack7s")
+
+[connection signal="pressed" from="main_menu_button" to="." method="_on_texture_button_pressed"]
