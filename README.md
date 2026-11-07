@@ -18,3 +18,6 @@ How to download \& Play
 
 3\. Open the newly extracted folder and double-click `JJKDECKBUILDER.exe` to start playing.
 
+My game's turn end button is also not working, so I need to somehow fix that—I have to figure it out because my game loop won't work without it. There might not be enough time this week since I'm busy, but I will figure it out eventually. I might explode if I don't
+
+![gif](https://github.com/user-attachments/assets/58620d3e-563e-4c95-93ae-d4a8aedddf57)
