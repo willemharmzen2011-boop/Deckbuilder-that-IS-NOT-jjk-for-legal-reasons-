@@ -41,3 +41,5 @@ Building this project involved setting up the entire architecture, managing node
 
 - **Engine:** Godot 4.x (GDScript)
 - **Studio:** DangerWorks !nteractive
+
+Images in a folder in git hub because they wont lik correctly in here
