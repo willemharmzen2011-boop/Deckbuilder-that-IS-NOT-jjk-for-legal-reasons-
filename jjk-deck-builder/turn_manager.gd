@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 var turn_start = true
 var turn_first_trigger = false
 var cursor_on_turn_end_button = false
