@@ -1,11 +1,11 @@
-extends Area2D
+extends TextureButton
 var turn_start = true
 var turn_first_trigger = false
 var cursor_on_turn_end_button = false
 # Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -16,25 +16,12 @@ func _process(delta: float) -> void:
 	#so that the cards dont move anymore and then we can also add it so the button stops working also unitl the turn comes around to the player
 	#but what needs to go in here is not a turn manager function it needs to be the buttons function so that it is able to directly control the turn 
 
+#ok so i dont think the button is working but why wouldnt it?
+#i might try switching to a normal button node but i really hope it doesnt do annoying stuff like what they usually do 
+# if that doesnt work it might point to the enemy turn just being broken so ill fix that if so
 
-func _on_mouse_shape_entered(shape_idx: int) -> void:
-	cursor_on_turn_end_button = true
-
-
-func _on_mouse_shape_exited(shape_idx: int) -> void:
-	cursor_on_turn_end_button = false
-
-
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and turn_start == true and cursor_on_turn_end_button and event.button_index == MOUSE_BUTTON_LEFT:
-		if event.pressed:
-			turn_start = false
-			var enemies = get_tree().get_nodes_in_group("enemy")
-			for enemy in enemies:
-				enemy.enemy_turn()
-			
-			
-			
-
-func button_hover_animation():
-	pass
+func _on_texture_button_pressed() -> void:
+	turn_start = false
+	var enemies_list = get_tree().get_nodes_in_group("enemy")
+	for enemy in enemies_list:
+		enemy.enemy_move(self)
