@@ -10,6 +10,31 @@
 
 [node name="Node2D" type="Node2D" unique_id=1179792890]
 
+[node name="StaticBody2D" parent="." unique_id=564001202 instance=ExtResource("1_cm0pq")]
+position = Vector2(421.99997, -190.00002)
+scale = Vector2(1.0182446, 1.0183765)
+
+[node name="card_manager" type="Node2D" parent="." unique_id=1291767345]
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("1_uu6xs")
+
+[node name="punch" parent="card_manager" unique_id=861145895 instance=ExtResource("2_uu6xs")]
+position = Vector2(-110, 0)
+
+[node name="punch2" parent="card_manager" unique_id=1183815746 instance=ExtResource("2_uu6xs")]
+
+[node name="punch3" parent="card_manager" unique_id=1290005626 instance=ExtResource("2_uu6xs")]
+z_index = 1
+position = Vector2(110, 0)
+
+[node name="punch4" parent="card_manager" unique_id=1367349246 instance=ExtResource("2_uu6xs")]
+z_index = -1
+position = Vector2(-220, 0)
+
+[node name="cursed_strike" parent="card_manager" unique_id=1499330783 instance=ExtResource("7_lgr22")]
+position = Vector2(232.99997, 0)
+scale = Vector2(0.59299994, 0.59299994)
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1405331352]
 z_index = -13
 position = Vector2(1.0000001, -404.99994)
@@ -24,31 +49,8 @@ scale = Vector2(0.546, 0.546)
 position = Vector2(0, -198)
 
 [node name="turn_manager" parent="." unique_id=1509573395 instance=ExtResource("5_3dxm6")]
-position = Vector2(439, 0)
-scale = Vector2(1.4546351, 1.4183517)
-
-[node name="StaticBody2D" parent="turn_manager" unique_id=564001202 instance=ExtResource("1_cm0pq")]
-position = Vector2(-11.686791, -133.95833)
-scale = Vector2(0.7, 0.718)
-
-[node name="card_manager" type="Node2D" parent="turn_manager" unique_id=1291767345]
-position = Vector2(-301.79388, 0)
-scale = Vector2(0.68745756, 0.70504373)
-script = ExtResource("1_uu6xs")
-
-[node name="punch" parent="turn_manager/card_manager" unique_id=861145895 instance=ExtResource("2_uu6xs")]
-position = Vector2(-110, 0)
-
-[node name="punch2" parent="turn_manager/card_manager" unique_id=1183815746 instance=ExtResource("2_uu6xs")]
-
-[node name="punch3" parent="turn_manager/card_manager" unique_id=1290005626 instance=ExtResource("2_uu6xs")]
-z_index = 1
-position = Vector2(110, 0)
-
-[node name="punch4" parent="turn_manager/card_manager" unique_id=1367349246 instance=ExtResource("2_uu6xs")]
-z_index = -1
-position = Vector2(-220, 0)
-
-[node name="cursed_strike" parent="turn_manager/card_manager" unique_id=1499330783 instance=ExtResource("7_lgr22")]
-position = Vector2(232.99997, 0)
-scale = Vector2(0.59299994, 0.59299994)
+offset_left = 344.00003
+offset_top = -52.0
+offset_right = 4844.0
+offset_bottom = 2428.0
+scale = Vector2(0.045516748, 0.044381406)
