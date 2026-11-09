@@ -1,23 +1,45 @@
-i am making this game not only for myself but for the Hack Club Terra event for the 3 days of this week that i was able to code for i set up the repo, the file structures for my godot project, the basic variables for the player character enemy character and first card, and i also attempted to make a drag-able card using a lerp thing  and the code was something like  if cursor on card AND cursor clicked  global postion of cursor lerp = cards position but it didn't work so i need to ask one of my friends hwat i did wrong
+# JJK Deckbuilder 
 
+Developed by **DangerWorks !nteractive** for the **Hack Club Terra** event!
 
+![Gameplay Overview](Screenshot%202026-11-05%20234320.jpg)
 
-so last time i said that i had a problem where the cards stuck to the cursor and wouldnt come off when i let go of the card that was because under the function \_on\_area\_2d\_input\_event there is an if and statement that was layed out incorrectly with cursor\_on\_card as a separate if statement where event.pressed was meant to be and that created a sticking effect where the card got stuck to the cursor and wouldn't unstick when you let go
+---
 
+## Why I Made This
 
+I created **JJK Deckbuilder** for the **Hack Club Terra** event. Working within a tight 3-day window of coding time, my goal was to build a fully functional, interactive 2D card battler game loop from scratch using the **Godot 4.x** engine and GDScript. 
 
-How to download \& Play
+---
 
+## Development Process & Technical Challenges
 
+Building this project involved setting up the entire architecture, managing node hierarchies, and tackling tricky game logic roadblocks:
 
-1\. Click the download button on itch.io to get the `.zip` file.
+- **Project Structure & Setup:** Initialized the Git repository, structured the Godot project folders, and created base scripts and variables for the player character, enemy types, and initial card assets.
+- **Card Design & UI:** Designed custom card frames, stat icons, and layout slots for actions like "Punch" and "Energy Strike".
 
-2\. Extract (Unzip) the folder: Right-click the downloaded `.zip` file and select Extract All... (or use your preferred extraction tool). 
+  ![Card Design in Godot](Screenshot%202026-10-17%20133321.png)
 
-&#x20;  >Important: Do not try to run the game directly from inside the zipped folder, or the game assets won't load properly!
+- **Drag-and-Drop Mechanics & Bugfixing:** Experimented with a linear interpolation (`lerp`) approach to make cards smoothly follow the cursor. During development, cards would occasionally get permanently "stuck" to the mouse cursor and refuse to release on click-up. I tracked down the bug: an improperly nested conditional check separated `cursor_on_card` from `event.pressed` in the input event function. Fixing the `if` statement logic successfully resolved the dragging and releasing behavior.
+- **Combat & Game Loop Implementation:** Added dynamic health bars, block calculations, damage absorption, turn tracking, and a custom hand layout system where players can select and play cards against enemies.
 
-3\. Open the newly extracted folder and double-click `JJKDECKBUILDER.exe` to start playing.
+  ![Battle Setup & UI](Screenshot%202026-10-28%230157.png)
 
-My game's turn end button is also not working, so I need to somehow fix that—I have to figure it out because my game loop won't work without it. There might not be enough time this week since I'm busy, but I will figure it out eventually. I might explode if I don't
+---
 
-![gif](https://github.com/user-attachments/assets/58620d3e-563e-4c95-93ae-d4a8aedddf57)
+## How to Download & Play
+
+1. Head over to the project page on **itch.io** and download the latest `.zip` release archive.
+2. **Extract (Unzip) the folder:** Right-click the downloaded `.zip` file and select **Extract All...** (or use your preferred extraction tool).
+   > **Important:** Do not try to run the game directly from inside the zipped folder! If you do not extract the folder first, the game data packs (`.pck` files) and assets won't load properly, causing the game to crash.
+3. Open the newly extracted folder and double-click **JJKDECKBUILDER.exe** to start playing!
+
+---
+
+## Built With
+
+- **Engine:** Godot 4.x (GDScript)
+- **Studio:** DangerWorks !nteractive
+
+Images in a folder in git hub because they wont lik correctly in here
