@@ -7,7 +7,7 @@
 size = Vector2(208, 291)
 
 [node name="cursed_strike" type="CharacterBody2D" unique_id=1499330783 groups=["attack card", "cards", "cursed_strike_card"]]
-scale = Vector2(0.756, 0.756)
+scale = Vector2(0.60337013, 0.596)
 script = ExtResource("1_w0d1v")
 
 [node name="Punch_card_image" type="Sprite2D" parent="." unique_id=1901956738]

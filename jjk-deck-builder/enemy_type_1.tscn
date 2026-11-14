@@ -43,7 +43,7 @@ script = ExtResource("1_qf0cy")
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("1_2ht8i")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1737898440 groups=["enemy"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=1737898440]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1187005944]
 shape = SubResource("CapsuleShape2D_2ht8i")

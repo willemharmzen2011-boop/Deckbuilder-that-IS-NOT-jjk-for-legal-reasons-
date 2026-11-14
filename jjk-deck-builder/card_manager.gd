@@ -10,8 +10,15 @@ var slot_positions = [
 	Vector2(110, 0),
 	Vector2(200, 0)
 ]
-# Called when the node enters the scene tree for the first time.
+var draw_pile: Array[PackedScene] = []
+var discard_pile: Array[PackedScene] = []
+var current_hand: Array[Node] = []
+	
+	# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	draw_pile_maker()
+	deal_hand(5)
+	
 	await get_tree().process_frame
 	#random card selector goes here to select five completely random cards from the deck
 	# get what group each card is in if its in the group cards then we
@@ -29,8 +36,7 @@ func _ready() -> void:
 	
 
 			
-			
-			
+
 
 # 
 
@@ -40,6 +46,23 @@ func _process(delta: float) -> void:
 	if is_setup_complete:
 		hand_layout_manager()
 
+func new_turn_hand_clear():
+	#kill them left over cards
+	for card in current_hand:
+		if is_instance_valid(card):
+			card.queue_free()
+	current_hand.clear()
+	#get the new cards
+	deal_hand(5)
+	#just wait a lil so godot puts the new crds in the terr
+	await get_tree().process_frame
+	
+	var cards = get_tree().get_nodes_in_group("cards")
+	for i in range(cards.size()):
+		var card = cards[i]
+		if card:
+			card.set("card_placement_order", i)
+	
 #lays out the cards in the correct places in here
 func hand_layout_manager():
 	#finds the cards in the tree
@@ -57,7 +80,7 @@ func hand_layout_manager():
 				var target_pos = slot_positions[slot_index]
 				card.global_position = card.global_position.lerp(target_pos, 0.2)
 	
-	
+
 	#ignore lol
 	#for this one what am i needing to do. lets think for a second...
 	#so we want our 5 cards that were numbered before to be placed at specific coordinates that we set as vector2s at the top.
@@ -81,4 +104,43 @@ func count_punch_cards():
 	punch_card_num = get_children().filter(func(c): return c.is_in_group("punch_card")).size()
 	
 func count_cursed_strike_cards():
-	cursed_strike_card_num = get_children().filter(func(c): return c.is_in_group("punch_card")).size()
+	cursed_strike_card_num = get_children().filter(func(c): return c.is_in_group("cursed_strike_card")).size()
+
+
+func draw_pile_maker():
+	draw_pile.clear()
+	
+	#grab dem numbys from playerstate
+	for card_name in playerstate.player_deck:
+		var amount = playerstate.player_deck[card_name]
+		
+		for i in range(amount):
+			if playerstate.card_scenes.has(card_name):
+				draw_pile.append(playerstate.card_scenes[card_name])
+	draw_pile.shuffle()
+
+func deal_hand(amount: int) -> void:
+	for i in range(amount):
+		if draw_pile.is_empty():
+			draw_pile = discard_pile.duplicate()
+			discard_pile.clear()
+			draw_pile.shuffle()
+		
+		if draw_pile.is_empty():
+			break
+		
+		var card_scene = draw_pile.pop_front()
+		var card_instance = card_scene.instantiate()
+		add_child(card_instance)
+		
+		current_hand.append(card_instance)
+
+	
+	#k so how do you deal cards lets think for a sec
+	#since we already have a inventory in the playerstate autoload we just need to take those values and turn those into
+	#cards on screen using var card_scene = preload("res://scenes/attack_card.tscn")
+	#var card_instance = card_scene.instantiate() and add_child(card_instance) but to use them i need to make a random card generator
+	#based on what cards are left in the inventory
+	#so what i can do probably is get my inventory and preload all of the cards in a drawpile randomly by
+	# creating a second dictionary with the file preloads and something to scramble the order of those cards prepareing them for
+	#draw and if there is a missing card in the hand it should replace it with a card loaded in the deck

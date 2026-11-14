@@ -51,7 +51,7 @@ func receive_block():
 				card.queue_free()
 				break
 
-func take_damage():
+func take_damage(player_damage: int):
 	print("player took damage! Incoming:", player_damage)
 	
 	if block > 0:
@@ -71,3 +71,13 @@ func take_damage():
 	  
 func player_die():
 	get_tree().change_scene_to_file("res://respawn_screen.tscn")
+
+func _unhandled_input(event: InputEvent) -> void:
+	#preload thepause menu
+	if Input.is_action_just_pressed("pause"):
+		var pause_screen = preload("res://pause_menu.tscn")
+		
+		
+		 
+#func pause_menu_open():
+	
