@@ -68,9 +68,10 @@ var turn_presets = [
 ]
 var selected_move = {}
 @onready var health_bar = $ProgressBar 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Enemy spawned with health: ", enemy_health)#<---remvoe this
+	
 	health_bar.max_value = enemy_max_health
 	health_bar.value = 70
 	enemy_health = 70
@@ -78,7 +79,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print("Enemy Health is currently: ", enemy_health)#<---remove this
+
 	health_bar.value = enemy_health
 		#add random action selection here 
 		#how do i make the enemy code select upto 10 and or anywhere under 10 random actions in its turn
@@ -136,10 +137,7 @@ func take_damage(body: Node2D) -> void:#calls my cool and statement thing for gr
 		# If the enemy's health hits 0 or less, trigger death
 		if enemy_health <= 0:
 			die()
-		
-		# If the enemy's health is 0 or less, trigger death
-		if enemy_health <= 0:
-			die()
+	
 	
 	
 	
@@ -152,6 +150,7 @@ func enemy_move():
 	
 
 func execute_move():
+	
 	for action in selected_move["actions"]:
 		var move_type = action["type"]
 		var times_executed = action["value"]
@@ -166,10 +165,13 @@ func execute_move():
 		
 		if move_type == "defence":
 			block = block + times_executed
+	
+	if not is_inside_tree():
+		return
+	
 	var turn_manager = get_tree().get_first_node_in_group("turn_manager")
-	if turn_manager:
+	if is_instance_valid(turn_manager):
 		turn_manager.turn_start = true
-
 
 #a and function for getting groups :3
 func get_nodes_in_both_groups(group1: String, group2: String) -> Array:
@@ -187,3 +189,4 @@ func die():
 	#put death animation and sounds here later
 	#deletes the enemy safely when the death function is triggered
 	queue_free()
+	#get_tree().change_scene_to_file("")

@@ -2,8 +2,8 @@ extends TextureButton
 var turn_start = true
 var turn_first_trigger = false
 var cursor_on_turn_end_button = false
-# Called when the node enters the scene tree for the first time.
 
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
@@ -20,8 +20,9 @@ func _process(delta: float) -> void:
 #i might try switching to a normal button node but i really hope it doesnt do annoying stuff like what they usually do 
 # if that doesnt work it might point to the enemy turn just being broken so ill fix that if so
 
-func _on_texture_button_pressed() -> void:
+func _on_pressed() -> void:
 	turn_start = false
 	var enemies_list = get_tree().get_nodes_in_group("enemy")
 	for enemy in enemies_list:
-		enemy.enemy_move(self)
+		enemy.enemy_turn()
+	card_manager.new_turn_hand_clear()

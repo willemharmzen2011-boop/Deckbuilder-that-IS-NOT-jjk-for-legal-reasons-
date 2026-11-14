@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b36r8vb4rgul5"]
+
+[ext_resource type="Texture2D" uid="uid://c7eqrbrvd1gnw" path="res://Sprites/play_button.png" id="1_hdmo1"]
+[ext_resource type="Texture2D" uid="uid://mksj4f1410am" path="res://Sprites/respawn - Copy.png" id="2_05uyy"]
+[ext_resource type="Texture2D" uid="uid://cu0og6qokh06k" path="res://Sprites/a button for something.png" id="3_p81d2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyi4u"]
+font_size = 100
+
+[node name="pause_menu" type="Control" unique_id=2038851916]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1651854546]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(11.662404, 16.338156)
+color = Color(0, 0, 0, 0.19215687)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=690605488]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(2.4802423, 0.9999064)
+color = Color(0, 0, 0, 0.14509805)
+
+[node name="Label" type="Label" parent="." unique_id=2091333133]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 36.0
+offset_right = 328.0
+offset_bottom = 173.0
+scale = Vector2(0.8951036, 0.8951036)
+text = "Pause"
+label_settings = SubResource("LabelSettings_wyi4u")
+
+[node name="play" type="TextureButton" parent="." unique_id=1480892393]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 187.0
+offset_right = 4564.0
+offset_bottom = 2667.0
+scale = Vector2(0.043492638, 0.043492638)
+texture_normal = ExtResource("1_hdmo1")
+
+[node name="TextureButton2" type="TextureButton" parent="." unique_id=1651917910]
+layout_mode = 0
+offset_left = 43.000004
+offset_top = 288.0
+offset_right = 4543.0
+offset_bottom = 2768.0
+scale = Vector2(0.05016217, 0.05016217)
+texture_normal = ExtResource("2_05uyy")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=219627745]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 399.00003
+offset_right = 4566.0
+offset_bottom = 2879.0
+scale = Vector2(0.045512058, 0.045577426)
+texture_normal = ExtResource("3_p81d2")
