@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7eqrbrvd1gnw" path="res://Sprites/play_button.png" id="1_hdmo1"]
 [ext_resource type="Texture2D" uid="uid://mksj4f1410am" path="res://Sprites/respawn - Copy.png" id="2_05uyy"]
-[ext_resource type="Texture2D" uid="uid://cu0og6qokh06k" path="res://Sprites/a button for something.png" id="3_p81d2"]
+[ext_resource type="Texture2D" uid="uid://b5kql3520jfqv" path="res://Sprites/settings.png" id="3_05uyy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wyi4u"]
 font_size = 100
@@ -64,4 +64,4 @@ offset_top = 399.00003
 offset_right = 4566.0
 offset_bottom = 2879.0
 scale = Vector2(0.045512058, 0.045577426)
-texture_normal = ExtResource("3_p81d2")
+texture_normal = ExtResource("3_05uyy")
