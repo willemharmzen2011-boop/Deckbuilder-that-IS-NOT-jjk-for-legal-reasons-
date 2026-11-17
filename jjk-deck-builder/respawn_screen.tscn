@@ -12,6 +12,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 2.0
+offset_right = -10.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l7xen")
@@ -67,3 +71,4 @@ scale = Vector2(0.06108528, 0.059412345)
 texture_normal = ExtResource("3_r43va")
 
 [connection signal="pressed" from="main_menu_button" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="respawn_button" to="." method="_on_respawn_button_pressed"]

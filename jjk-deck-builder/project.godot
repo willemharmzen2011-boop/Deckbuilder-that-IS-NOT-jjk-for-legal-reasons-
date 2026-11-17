@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="JJK Deck Builder"
-run/main_scene="uid://cjafiortruu58"
+run/main_scene="uid://ca8k3iq25yayn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Player_manager="*uid://byuqre2c3xx7c"
 playerstate="*uid://bc2048vmxe3ql"
 card_manager="*uid://6ikmhu0p4bat"
+ui_manager="*uid://dbrtkgdvgrbkj"
 
 [editor_plugins]
 
@@ -36,6 +37,7 @@ player=""
 "attack card"=""
 "discard pile"=""
 block=""
+main=""
 
 [input]
 

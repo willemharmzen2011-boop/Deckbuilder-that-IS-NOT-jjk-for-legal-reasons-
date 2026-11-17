@@ -37,19 +37,10 @@ func _ready() -> void:
 		value_label.text = str(block)
 
 
-func receive_block():
-	var overlapping_areas = $Area2D.get_overlapping_areas()
+func receive_block(card):
+	block += card.block
 	
-	if overlapping_areas.size() > 0:
-		for area in overlapping_areas:
-			var card = area.get_parent()
-			
-			if card and card.is_in_group("block"):
-				var card_block_amount = card.block_value if "block" in card else 5
-				block += card_block_amount
-				print("Player gained block:", card_block_amount, "Total block:", block)
-				card.queue_free()
-				break
+	
 
 func take_damage(player_damage: int):
 	print("player took damage! Incoming:", player_damage)

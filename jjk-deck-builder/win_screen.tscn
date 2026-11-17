@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bxtbqmnmweqxl"]
+
+[ext_resource type="Script" uid="uid://d0imssrh5wpj7" path="res://win_screen.gd" id="1_wmwda"]
+[ext_resource type="Texture2D" uid="uid://wb586kxl5ah2" path="res://real respawn - Copy.png" id="2_1txte"]
+[ext_resource type="Texture2D" uid="uid://mksj4f1410am" path="res://Sprites/respawn - Copy.png" id="2_l5t5q"]
+
+[sub_resource type="Theme" id="Theme_1txte"]
+
+[sub_resource type="Theme" id="Theme_26557"]
+
+[node name="CanvasGroup" type="CanvasGroup" unique_id=1701688728]
+
+[node name="win_screen" type="Control" parent="." unique_id=1324478711]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 119.0
+offset_right = 5.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wmwda")
+
+[node name="ColorRect" type="ColorRect" parent="win_screen" unique_id=1419927604]
+layout_mode = 0
+offset_left = -7.0
+offset_top = -9.0
+offset_right = 1165.0
+offset_bottom = 654.0
+theme = SubResource("Theme_1txte")
+color = Color(0.13333334, 0.13333334, 0.13333334, 0.25882354)
+
+[node name="ColorRect" type="ColorRect" parent="win_screen/ColorRect" unique_id=1130505417]
+layout_mode = 0
+offset_left = 299.0
+offset_top = -10.0
+offset_right = 908.0
+offset_bottom = 670.0
+color = Color(0.2, 0.2, 0.2, 0.7882353)
+
+[node name="continue" type="TextureButton" parent="win_screen" unique_id=358146959]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062000003
+offset_left = 479.0
+offset_top = 181.0
+offset_right = 5923.1567
+offset_bottom = 3154.0342
+scale = Vector2(0.045850635, 0.047297634)
+texture_normal = ExtResource("2_1txte")
+
+[node name="main_menu" type="TextureButton" parent="win_screen" unique_id=1956034944]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.062000003
+offset_left = 469.00006
+offset_top = 307.0
+offset_right = 4928.68
+offset_bottom = 2746.824
+scale = Vector2(0.04690164, 0.04690164)
+texture_normal = ExtResource("2_l5t5q")
+
+[node name="Label" type="Label" parent="win_screen" unique_id=1702376067]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 21.0
+offset_right = 532.0
+offset_bottom = 44.0
+theme = SubResource("Theme_26557")
+theme_override_font_sizes/font_size = 62
+text = "you win"
+
+[node name="Camera2D" type="Camera2D" parent="win_screen" unique_id=1684009700]
+position = Vector2(581, 322)
+
+[connection signal="pressed" from="win_screen/continue" to="win_screen" method="_on_respawn_pressed"]
+[connection signal="pressed" from="win_screen/main_menu" to="win_screen" method="_on_main_menu_pressed"]
