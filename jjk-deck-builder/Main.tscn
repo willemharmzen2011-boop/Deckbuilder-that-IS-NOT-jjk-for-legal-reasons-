@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://uncqggt3h0av" path="res://player.tscn" id="2_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://bioq0b7coxnd5" path="res://turn_manager.tscn" id="5_3dxm6"]
 
-[node name="Node2D" type="Node2D" unique_id=1179792890]
+[node name="Node2D" type="Node2D" unique_id=1179792890 groups=["main"]]
 
 [node name="StaticBody2D" parent="." unique_id=564001202 instance=ExtResource("1_cm0pq")]
 position = Vector2(421.99997, -190.00002)

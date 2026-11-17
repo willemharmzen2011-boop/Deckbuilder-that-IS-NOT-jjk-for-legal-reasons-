@@ -189,4 +189,6 @@ func die():
 	#put death animation and sounds here later
 	#deletes the enemy safely when the death function is triggered
 	queue_free()
-	#get_tree().change_scene_to_file("")
+	get_tree().change_scene_to_file("res://win_screen.tscn") 
+	
+	

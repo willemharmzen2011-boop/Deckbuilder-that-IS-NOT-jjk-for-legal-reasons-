@@ -31,9 +31,8 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	#grabs teh turn manager node so it can checkign if turn staart == trueand if its so
 	var turn_manager = get_tree().get_first_node_in_group("turn_manager")
-	#checks for left click and if the card is over at the same time
+	# Checks for left click input and that the cursor is over the card all at once
 	if event is InputEventMouseButton and turn_manager.turn_start == true and cursor_on_card and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
 			is_selected = true
@@ -43,7 +42,8 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			if card_is_on_player:
 				var player = get_tree().get_first_node_in_group("player")
 				if player:
-					player.receive_block()
+					player.receive_block(self)
+					queue_free()
 
 
 
@@ -56,3 +56,14 @@ func _on_area_2d_mouse_shape_entered(shape_idx: int) -> void:
 func _on_area_2d_mouse_shape_exited(shape_idx: int) -> void:
 	#desctects if the cursor left the cards area and sets cursor_on_card to false
 	cursor_on_card = false
+
+
+
+func _on_card_off_player(body: Node2D) -> void:
+	card_is_on_player = false
+	if is_in_group("player"):
+		print("the card is over the player ")
+#_on_card_off_player isnt triggering why might that be
+
+func _on_card_over_player(body: Node2D) -> void:
+	card_is_on_player = true

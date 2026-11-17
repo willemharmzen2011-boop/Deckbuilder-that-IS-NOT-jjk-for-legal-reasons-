@@ -13,7 +13,7 @@ var slot_positions = [
 var draw_pile: Array[PackedScene] = []
 var discard_pile: Array[PackedScene] = []
 var current_hand: Array[Node] = []
-	
+
 	# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	draw_pile_maker()
@@ -120,20 +120,21 @@ func draw_pile_maker():
 	draw_pile.shuffle()
 
 func deal_hand(amount: int) -> void:
-	for i in range(amount):
-		if draw_pile.is_empty():
-			draw_pile = discard_pile.duplicate()
-			discard_pile.clear()
-			draw_pile.shuffle()
+	
+		for i in range(amount):
+			if draw_pile.is_empty():
+				draw_pile = discard_pile.duplicate()
+				discard_pile.clear()
+				draw_pile.shuffle()
 		
-		if draw_pile.is_empty():
-			break
+			if draw_pile.is_empty():
+				break
 		
-		var card_scene = draw_pile.pop_front()
-		var card_instance = card_scene.instantiate()
-		add_child(card_instance)
+			var card_scene = draw_pile.pop_front()
+			var card_instance = card_scene.instantiate()
+			add_child(card_instance)
 		
-		current_hand.append(card_instance)
+			current_hand.append(card_instance)
 
 	
 	#k so how do you deal cards lets think for a sec
