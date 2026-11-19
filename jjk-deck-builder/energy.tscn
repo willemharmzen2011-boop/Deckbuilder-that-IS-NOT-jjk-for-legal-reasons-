@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ndbu5iltqth5"]
+
+[ext_resource type="Script" uid="uid://dwdgu7key4egw" path="res://energy.gd" id="1_ql0ev"]
+
+[sub_resource type="Theme" id="Theme_ql0ev"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_if8s4"]
+font_size = 69
+
+[node name="Control" type="Control" unique_id=1800007485 groups=["energy"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3.9583552, 3.9583552)
+theme = SubResource("Theme_ql0ev")
+script = ExtResource("1_ql0ev")
+
+[node name="Label" type="Label" parent="." unique_id=780905335]
+layout_mode = 0
+offset_left = -19.0
+offset_top = -12.0
+offset_right = 21.0
+offset_bottom = 11.0
+scale = Vector2(0.29720843, 0.29720843)
+label_settings = SubResource("LabelSettings_if8s4")

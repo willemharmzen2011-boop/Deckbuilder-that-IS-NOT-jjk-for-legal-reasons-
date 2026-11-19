@@ -38,6 +38,8 @@ player=""
 "discard pile"=""
 block=""
 main=""
+energy=""
+cursed_energy=""
 
 [input]
 

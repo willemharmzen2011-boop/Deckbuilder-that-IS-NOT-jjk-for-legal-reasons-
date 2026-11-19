@@ -150,6 +150,7 @@ func enemy_move():
 	
 
 func execute_move():
+	var energy = get_tree().get_first_node_in_group("energy")
 	
 	for action in selected_move["actions"]:
 		var move_type = action["type"]
@@ -172,6 +173,8 @@ func execute_move():
 	var turn_manager = get_tree().get_first_node_in_group("turn_manager")
 	if is_instance_valid(turn_manager):
 		turn_manager.turn_start = true
+		if energy:
+			energy.reset_energy()
 
 #a and function for getting groups :3
 func get_nodes_in_both_groups(group1: String, group2: String) -> Array:

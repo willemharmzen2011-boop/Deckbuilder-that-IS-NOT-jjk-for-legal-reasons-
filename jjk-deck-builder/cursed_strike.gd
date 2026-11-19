@@ -12,6 +12,8 @@ var is_selected = false
 var card_placement_order: int = 0
 var attack_damage = 10
 var card_is_on_enemy = false
+var energy_cost = 1
+const CURSED_ENERGY_COST = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -34,6 +36,10 @@ func _process(delta: float) -> void:
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	#fetches the turn manager node so we can check if turn_start == true and if it does then 
 	var turn_manager = get_tree().get_first_node_in_group("turn_manager")
+	#fetches the energy thing so it can check if theres enough energy to attack
+	var energy = get_tree().get_first_node_in_group("energy")
+	#gets the cursed energy to scheck for cursed energy later
+	var cursed_energy = get_tree().get_first_node_in_group("cursed_energy")
 	# Checks for left click input and that the cursor is over the card all at once
 	if event is InputEventMouseButton and turn_manager.turn_start == true and cursor_on_card and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -43,9 +49,11 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			is_selected = false
 			if card_is_on_enemy:
 				var enemy = get_tree().get_first_node_in_group("enemy")
-				if enemy:
+				if enemy and energy.current_energy >= energy_cost and cursed_energy.current_cursed_energy >= CURSED_ENERGY_COST  :
 					print("dropping card on enemy, dealing damage now")
 					enemy.take_damage(self)
+					energy.energy_used(self)
+					cursed_energy.cursed_energy_used(self)
 
 
 
