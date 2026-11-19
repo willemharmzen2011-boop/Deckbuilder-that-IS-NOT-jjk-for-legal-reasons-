@@ -11,6 +11,7 @@ var is_selected = false
 var card_placement_order: int = 0
 var block = 5
 var card_is_on_player
+var energy_cost = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -32,6 +33,8 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	var turn_manager = get_tree().get_first_node_in_group("turn_manager")
+	
+	var energy = get_tree().get_first_node_in_group("energy")
 	# Checks for left click input and that the cursor is over the card all at once
 	if event is InputEventMouseButton and turn_manager.turn_start == true and cursor_on_card and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -41,8 +44,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			is_selected = false
 			if card_is_on_player:
 				var player = get_tree().get_first_node_in_group("player")
-				if player:
+				if player and energy.current_energy >= energy_cost:
 					player.receive_block(self)
+					energy.energy_used(self)
 					queue_free()
 
 

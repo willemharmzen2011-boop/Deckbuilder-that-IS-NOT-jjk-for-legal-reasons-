@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bxtbqmnmweqxl"]
 
 [ext_resource type="Script" uid="uid://d0imssrh5wpj7" path="res://win_screen.gd" id="1_wmwda"]
-[ext_resource type="Texture2D" uid="uid://wb586kxl5ah2" path="res://real respawn - Copy.png" id="2_1txte"]
+[ext_resource type="Texture2D" uid="uid://c1pbx71racaqp" path="res://Sprites/CONTINUE.png" id="2_1txte"]
 [ext_resource type="Texture2D" uid="uid://mksj4f1410am" path="res://Sprites/respawn - Copy.png" id="2_l5t5q"]
 
 [sub_resource type="Theme" id="Theme_1txte"]
@@ -45,11 +45,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.035
 anchor_bottom = 0.062000003
-offset_left = 479.0
+offset_left = 454.0
 offset_top = 181.0
-offset_right = 5923.1567
+offset_right = 5898.1567
 offset_bottom = 3154.0342
-scale = Vector2(0.045850635, 0.047297634)
+scale = Vector2(0.054595407, 0.056318384)
 texture_normal = ExtResource("2_1txte")
 
 [node name="main_menu" type="TextureButton" parent="win_screen" unique_id=1956034944]

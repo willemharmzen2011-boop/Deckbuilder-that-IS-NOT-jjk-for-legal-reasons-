@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c7eqrbrvd1gnw" path="res://Sprites/play_button.png" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://b27yypfnkitra" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://chvmfeitpqckj" path="res://Sprites/new_save.png" id="3_glbon"]
 [ext_resource type="Texture2D" uid="uid://bh25774gx0x8b" path="res://settings.png" id="3_jix8l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rhts7"]
@@ -82,11 +83,12 @@ texture_normal = ExtResource("1_06t4h")
 
 [node name="new_save" type="TextureButton" parent="." unique_id=612386675]
 layout_mode = 0
-offset_left = 96.00001
-offset_top = 270.0
-offset_right = 136.0
-offset_bottom = 310.0
-scale = Vector2(0.80171365, 0.82261276)
+offset_left = 46.0
+offset_top = 241.0
+offset_right = 4546.0
+offset_bottom = 2721.0
+scale = Vector2(0.06206613, 0.06368407)
+texture_normal = ExtResource("3_glbon")
 
 [node name="settings" type="TextureButton" parent="." unique_id=172141750]
 layout_mode = 1

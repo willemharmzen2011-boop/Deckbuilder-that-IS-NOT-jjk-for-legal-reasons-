@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cmlgxd80yr6wr"]
+
+[ext_resource type="Script" uid="uid://copcgqrujqlj7" path="res://cursed_energy_bar.gd" id="1_f7oem"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fos0i"]
+bg_color = Color(0.23529412, 0.23529412, 0.23529412, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3dxm6"]
+bg_color = Color(0.38431373, 0.03529412, 0.654902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ProgressBar" type="ProgressBar" unique_id=1217375915 groups=["cursed_energy"]]
+offset_left = -556.835
+offset_top = -348.0
+offset_right = -519.90753
+offset_bottom = -66.495056
+theme_override_styles/background = SubResource("StyleBoxFlat_fos0i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3dxm6")
+max_value = 200.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("1_f7oem")
+
+[node name="Label" type="Label" parent="." unique_id=1693822715]
+layout_mode = 0
+offset_left = 6.835022
+offset_top = 220.0
+offset_right = 167.83502
+offset_bottom = 243.0
+rotation = -1.5707964
+text = "cursed energy meter"
