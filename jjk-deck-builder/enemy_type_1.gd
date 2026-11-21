@@ -175,8 +175,8 @@ func execute_move():
 		turn_manager.turn_start = true
 		
 		if if_deck_empty():
-			card_manager.
-		
+			#card_manager.          i need to continue here soon because otherwise ill get lost while coding because im getting tripped up a bunch
+			pass
 		if energy:
 			energy.reset_energy()
 			
