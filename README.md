@@ -30,7 +30,7 @@ Building this project involved setting up the entire architecture, managing node
 
 ## How to Download & Play
 
-1. Head over to the project page on **itch.io** and download the latest `.zip` release archive.
+1. Head over to the project page  **[itch.io](https://dangerw.itch.io/deck-builder-rougelike-big-wip)** and download the latest `.zip` release archive.
 2. **Extract (Unzip) the folder:** Right-click the downloaded `.zip` file and select **Extract All...** (or use your preferred extraction tool).
    > **Important:** Do not try to run the game directly from inside the zipped folder! If you do not extract the folder first, the game data packs (`.pck` files) and assets won't load properly, causing the game to crash.
 3. Open the newly extracted folder and double-click **JJKDECKBUILDER.exe** to start playing!
