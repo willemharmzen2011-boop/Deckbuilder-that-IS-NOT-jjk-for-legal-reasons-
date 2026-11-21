@@ -9,7 +9,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass 
+	if current_cursed_energy > 5:
+		current_cursed_energy = MAX_CURSED_ENERGY
 
 func update_cursed_energy_bar():
 	value = current_cursed_energy
@@ -17,4 +18,8 @@ func update_cursed_energy_bar():
 
 func cursed_energy_used(card_node):
 	current_cursed_energy -= card_node.CURSED_ENERGY_COST
+	update_cursed_energy_bar()
+
+func add_energy():
+	current_cursed_energy += 2
 	update_cursed_energy_bar()
