@@ -173,8 +173,13 @@ func execute_move():
 	var turn_manager = get_tree().get_first_node_in_group("turn_manager")
 	if is_instance_valid(turn_manager):
 		turn_manager.turn_start = true
+		
+		if if_deck_empty():
+			card_manager.
+		
 		if energy:
 			energy.reset_energy()
+			
 
 #a and function for getting groups :3
 func get_nodes_in_both_groups(group1: String, group2: String) -> Array:
@@ -194,4 +199,12 @@ func die():
 	queue_free()
 	get_tree().change_scene_to_file("res://win_screen.tscn") 
 	
+
+func if_deck_empty():
+	var deck_is_empty = true
 	
+	for card_name in playerstate.player_deck:
+		if playerstate.player_deck[card_name] > 0:
+			deck_is_empty = false
+			break
+	return deck_is_empty

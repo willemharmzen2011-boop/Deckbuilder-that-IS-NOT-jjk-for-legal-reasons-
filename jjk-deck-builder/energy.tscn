@@ -25,4 +25,5 @@ offset_top = -12.0
 offset_right = 21.0
 offset_bottom = 11.0
 scale = Vector2(0.29720843, 0.29720843)
+text = "3"
 label_settings = SubResource("LabelSettings_if8s4")

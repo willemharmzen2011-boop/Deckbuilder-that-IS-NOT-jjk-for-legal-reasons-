@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://j78cufmy80t0"]
+
+[ext_resource type="Texture2D" uid="uid://c1sp1dvot5gxp" path="res://icon.svg" id="1_fdqi6"]
+[ext_resource type="Script" uid="uid://dpvc655lfsnt1" path="res://charge_up.gd" id="1_tma4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tma4p"]
+size = Vector2(156, 220)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=873782099]
+script = ExtResource("1_tma4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=645110787]
+position = Vector2(9.094947e-13, 0)
+scale = Vector2(1.2187499, 1.734375)
+texture = ExtResource("1_fdqi6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1739223990]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2066925499]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_tma4p")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_card_over_player"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_card_off_player"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_shape_entered" from="Area2D" to="." method="_on_area_2d_mouse_shape_entered"]
+[connection signal="mouse_shape_exited" from="Area2D" to="." method="_on_area_2d_mouse_shape_exited"]
