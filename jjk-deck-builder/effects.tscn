@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://sm6y5uda3egr"]
+
+[ext_resource type="Script" uid="uid://rf0obvyu26s2" path="res://gpu_particles_2d.gd" id="1_oaf0w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oaf0w"]
+load_path = "res://.godot/imported/boom.png-dbca1f8f4704a01b34a60fe761dd4a52.ctex"
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oaf0w"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 0.089999996
+scale_max = 0.089999996
+collision_use_scale = true
+
+[node name="boom" type="GPUParticles2D" unique_id=1086829498]
+position = Vector2(1, -1)
+scale = Vector2(0.567, 0.567)
+emitting = false
+amount = 1
+texture = SubResource("CompressedTexture2D_oaf0w")
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_oaf0w")
+script = ExtResource("1_oaf0w")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

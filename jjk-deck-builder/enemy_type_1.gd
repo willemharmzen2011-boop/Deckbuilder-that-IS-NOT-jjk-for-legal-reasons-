@@ -5,7 +5,7 @@ extends StaticBody2D
 #the same can be done the other way round we also need the enemy to start their turn when turn_start = false and 
 #at the end of its turn set turn_start to true and after that is done we can try adding blocking by doing 
 #something like if attacking and block > 1 damage = damage-block and then we say if damage < 1 skip the turn 
- 
+
 var enemy_health = 70
 const enemy_max_health = 70
 var attack_damage = 3
@@ -174,8 +174,8 @@ func execute_move():
 	if is_instance_valid(turn_manager):
 		turn_manager.turn_start = true
 		
-		if if_deck_empty():
-			#card_manager.          i need to continue here soon because otherwise ill get lost while coding because im getting tripped up a bunch
+		if card_manager.draw_pile.size() <= 0:
+			card_manager.draw_pile_maker()
 			pass
 		if energy:
 			energy.reset_energy()
@@ -199,12 +199,3 @@ func die():
 	queue_free()
 	get_tree().change_scene_to_file("res://win_screen.tscn") 
 	
-
-func if_deck_empty():
-	var deck_is_empty = true
-	
-	for card_name in playerstate.player_deck:
-		if playerstate.player_deck[card_name] > 0:
-			deck_is_empty = false
-			break
-	return deck_is_empty

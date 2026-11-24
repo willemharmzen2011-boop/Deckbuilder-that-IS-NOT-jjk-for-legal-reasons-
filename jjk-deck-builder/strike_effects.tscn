@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bmlf7dqj8md3r"]
+
+[ext_resource type="Script" uid="uid://rf0obvyu26s2" path="res://gpu_particles_2d.gd" id="1_fw0n5"]
+[ext_resource type="Texture2D" uid="uid://dyeoa7ge8ta3a" path="res://Sprites/slash.png" id="1_imegx"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oaf0w"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 0.089999996
+scale_max = 0.089999996
+collision_use_scale = true
+
+[node name="slash" type="GPUParticles2D" unique_id=1086829498]
+position = Vector2(1, -1)
+scale = Vector2(0.567, 0.567)
+emitting = false
+amount = 1
+texture = ExtResource("1_imegx")
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_oaf0w")
+script = ExtResource("1_fw0n5")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+const BLOCK_EFFECT_SCENE = preload("res://block_effects.tscn")
 @onready var area_2d: Area2D = $Area2D
 #lists which card actually is so it can be used for countingthe cards for the inventory system
 const card_type = "block"
@@ -47,6 +48,9 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				if player and energy.current_energy >= energy_cost:
 					player.receive_block(self)
 					energy.energy_used(self)
+					var block_effect = BLOCK_EFFECT_SCENE.instantiate()
+					block_effect.global_position = player.global_position
+					get_tree().current_scene.add_child(block_effect)
 					queue_free()
 
 

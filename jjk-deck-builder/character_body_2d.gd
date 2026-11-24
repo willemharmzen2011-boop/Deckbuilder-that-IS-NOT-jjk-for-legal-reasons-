@@ -2,6 +2,7 @@
 extends CharacterBody2D
 #calls the area 2d into the script
 @onready var area_2d: Area2D = $Area2D 
+const HIT_EFFECT_SCENE = preload("res://strike_effects.tscn")
 #lists what type of card this card is, used for counting up the cards so they can be put back into the inventory
 const card_type: String = "punch"
 #detects if cursor is on the card
@@ -46,12 +47,24 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			is_selected = true
 			get_viewport().set_input_as_handled()
 		else:
+			#changes is_selected to false to make it unselected
 			is_selected = false
+			#it te=n checks if the card is on the enemy
 			if card_is_on_enemy:
+				#it gets now the enemy for later stuff
 				var enemy = get_tree().get_first_node_in_group("enemy")
+				# checks if energy is enough to use the card
 				if enemy and energy.current_energy >= energy_cost:
+					#hands the node to the enemy to execute the take_damage()
 					enemy.take_damage(self)
+					#hands the node to the energy system where it deducts the energy cost from the energy supply
 					energy.energy_used(self)
+					#puts the preloaded guy into the world
+					var hit_effect = HIT_EFFECT_SCENE.instantiate()
+					#places the effect ontop of the enemy
+					hit_effect.global_position = enemy.global_position
+					#drop it in the main scene where the card is loaded
+					get_tree().current_scene.add_child(hit_effect)
 
 
 

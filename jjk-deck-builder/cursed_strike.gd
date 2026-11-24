@@ -1,4 +1,5 @@
 extends CharacterBody2D
+const HIT_EFFECT_SCENE = preload("res://effects.tscn")
 #calls the area 2d into the script
 @onready var area_2d: Area2D = $Area2D 
 #lists what type of card this card is, used for counting up the cards so they can be put back into the inventory
@@ -46,15 +47,27 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			is_selected = true
 			get_viewport().set_input_as_handled()
 		else:
+			#is selected is turned to false meaning that the card is no longer selected
 			is_selected = false
+			#the card_is_on_enemy thing is checked and if its true
 			if card_is_on_enemy:
+				#gets the nenmy
 				var enemy = get_tree().get_first_node_in_group("enemy")
+				#checks if there is enough energy to play the card
 				if enemy and energy.current_energy >= energy_cost and cursed_energy.current_cursed_energy >= CURSED_ENERGY_COST  :
 					print("dropping card on enemy, dealing damage now")
+					#hands over this node to the enemy so it can use the damage variables for the take_damage function
 					enemy.take_damage(self)
+					#hands over the node so it can give the energy script its energy costs
 					energy.energy_used(self)
+					#samething here
 					cursed_energy.cursed_energy_used(self)
-
+					#creat the preloaded effects thing
+					var hit_effect = HIT_EFFECT_SCENE.instantiate()
+					#move it to the nenmy is so its in the right place
+					hit_effect.global_position = enemy.global_position - Vector2(200,0)
+					#drop it in the main scene where the card is loaded
+					get_tree().current_scene.add_child(hit_effect)
 
 
 
