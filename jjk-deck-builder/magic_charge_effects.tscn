@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ccwb0k3xxtpyq"]
+
+[ext_resource type="Texture2D" uid="uid://ddwles4f1vb7d" path="res://Sprites/sheild-removebg-preview.png" id="1_ok2y2"]
+[ext_resource type="Script" uid="uid://rf0obvyu26s2" path="res://gpu_particles_2d.gd" id="2_7t7oa"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oaf0w"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 0.5
+scale_max = 0.5
+collision_use_scale = true
+
+[node name="block" type="GPUParticles2D" unique_id=1086829498]
+position = Vector2(1, -1)
+scale = Vector2(0.482, 0.482)
+emitting = false
+amount = 1
+texture = ExtResource("1_ok2y2")
+lifetime = 0.25
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_oaf0w")
+script = ExtResource("2_7t7oa")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

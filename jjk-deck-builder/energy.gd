@@ -17,7 +17,7 @@ func update_energy_indicator():
 
 func energy_used(card_node):
 	#when a card is played it takes its energy cost variable and minusing it from the current energy
-	current_energy -= card_node.energy_cost
+	current_energy -= card_node.ENERGY_COST
 	#updates the energy indicator
 	update_energy_indicator()
 

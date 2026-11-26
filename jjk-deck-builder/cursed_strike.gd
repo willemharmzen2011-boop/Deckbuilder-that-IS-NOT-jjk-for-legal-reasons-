@@ -13,7 +13,7 @@ var is_selected = false
 var card_placement_order: int = 0
 var attack_damage = 10
 var card_is_on_enemy = false
-var energy_cost = 1
+const ENERGY_COST = 1
 const CURSED_ENERGY_COST = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -54,7 +54,7 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 				#gets the nenmy
 				var enemy = get_tree().get_first_node_in_group("enemy")
 				#checks if there is enough energy to play the card
-				if enemy and energy.current_energy >= energy_cost and cursed_energy.current_cursed_energy >= CURSED_ENERGY_COST  :
+				if enemy and energy.current_energy >= ENERGY_COST and cursed_energy.current_cursed_energy >= CURSED_ENERGY_COST  :
 					print("dropping card on enemy, dealing damage now")
 					#hands over this node to the enemy so it can use the damage variables for the take_damage function
 					enemy.take_damage(self)

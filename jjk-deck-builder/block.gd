@@ -12,7 +12,7 @@ var is_selected = false
 var card_placement_order: int = 0
 var block = 5
 var card_is_on_player
-var energy_cost = 1
+const ENERGY_COST = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -45,9 +45,10 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			is_selected = false
 			if card_is_on_player:
 				var player = get_tree().get_first_node_in_group("player")
-				if player and energy.current_energy >= energy_cost:
+				if player and energy.current_energy >= ENERGY_COST:
 					player.receive_block(self)
 					energy.energy_used(self)
+					
 					var block_effect = BLOCK_EFFECT_SCENE.instantiate()
 					block_effect.global_position = player.global_position
 					get_tree().current_scene.add_child(block_effect)

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+const CHARGE_EFFECT_SCENE = preload("res://magic_charge_effects.tscn")
 @onready var area_2d: Area2D = $Area2D
 #lists which card actually is so it can be used for countingthe cards for the inventory system
 const CARD_TYPE = "charge_up"
@@ -11,7 +12,7 @@ var is_selected = false
 var card_placement_order: int = 0
 var block = 3
 var card_is_on_player
-var energy_cost = 1
+const ENERGY_COST = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -43,13 +44,27 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			is_selected = true
 			get_viewport().set_input_as_handled()
 		else:
+			#changes is_selected to false to drop the card
 			is_selected = false
+			#checks if the cards over the player
 			if card_is_on_player:
+				#grabs the player node using
 				var player = get_tree().get_first_node_in_group("player")
-				if player and energy.current_energy >= energy_cost:
+				#checks if you have enough energy to play the card 
+				if player and energy.current_energy >= ENERGY_COST:
+					#sends the node to the player do apply it to receive_block
 					player.receive_block(self)
+					#sends the node to the energy system to minus the energy cost variable from the energy total
 					energy.energy_used(self)
+					#sends the node to the cursed energy node to grant the player more energy
 					cursed_energy.add_energy()
+					#puts the charge effect into the scene
+					var charge_effect = CHARGE_EFFECT_SCENE.instantiate()
+					#moves the effect into the correct place in the scene
+					charge_effect.global_position = player.global_position
+					#drops it into the scene now
+					get_tree().current_scene.add_child(charge_effect)
+					#deletes the card from the scene
 					queue_free()
 
 

@@ -37,8 +37,8 @@ script = ExtResource("1_onrkg")
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1766114149]
 
 [node name="Label" type="Label" parent="." unique_id=60576314]
-offset_left = -178.0
-offset_top = -271.0
+offset_left = -182.0
+offset_top = -291.0
 offset_right = -138.0
 offset_bottom = -248.0
 

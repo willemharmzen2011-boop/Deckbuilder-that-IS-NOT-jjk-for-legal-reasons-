@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var value_label: Label = $ValueLabel
+@onready var block_indicator: Label = $ValueLabel
 var max_player_health = 70
 var player_health = 70 :
 	set(value):
@@ -14,11 +14,8 @@ var max_special_energy_level = 3
 var special_energy_level = 3
 
 
-var block = 0 :
-	set(value):
-		block = value
-		if value_label:
-			value_label.text = str(block)
+var block = 0 
+	
 
 var player_damage = 0
 var health_bar: ProgressBar
@@ -33,9 +30,10 @@ func _ready() -> void:
 		print("error: couldn't find progressbar node under da playa")
 		
 
-	if value_label:
-		value_label.text = str(block)
-
+	
+		
+func update_block_indicator():
+	block_indicator.text = str(block)
 
 func receive_block(card):
 	block += card.block
@@ -72,3 +70,5 @@ func _unhandled_input(event: InputEvent) -> void:
 		 
 #func pause_menu_open():
 	
+func drain_heal(drain_card):
+	player_health += drain_card.drained_health

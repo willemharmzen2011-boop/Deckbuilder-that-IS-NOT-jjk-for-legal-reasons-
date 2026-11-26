@@ -8,7 +8,7 @@ extends StaticBody2D
 
 var enemy_health = 70
 const enemy_max_health = 70
-var attack_damage = 3
+var enemy_attack_damage = 3
 var block = 0
 var turn_presets = [
 	#preset 0 full attack 
@@ -157,7 +157,7 @@ func execute_move():
 		var times_executed = action["value"]
 	
 		if move_type == "attack":
-			var player_damage = attack_damage * times_executed
+			var player_damage = enemy_attack_damage * times_executed
 		
 		#finds the player and sends the player damage over to be processed on that side
 			var player = get_tree().get_first_node_in_group("player")
